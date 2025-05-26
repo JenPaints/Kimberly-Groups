@@ -16,7 +16,7 @@ export default function Button({ buttonLink, buttonText, className }: Props) {
 
   return isLinkField ? (
     <PrismicNextLink
-      className={clsx("rounded-xl bg-orange-300 px-5 py-4 text-center text-xl font-bold uppercase tracking-wide text-black transition-colors duration-150 hover:bg-orange-400 md:text-2xl", className)}
+      className={clsx("rounded-xl bg-yellow-100 px-5 py-4 text-center text-xl font-bold uppercase tracking-wide text-black transition-colors duration-150 hover:bg-orange-400 md:text-2xl", className)}
       field={buttonLink as LinkField}
     >
       {buttonText}

@@ -16,6 +16,7 @@ import Scene from "./Scene";
 import { CoffeeBeans } from "./CoffeeBeans";
 import { useStore } from "@/hooks/useStore";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
+import Navbar from "@/components/Navbar";
 
 
 
@@ -68,14 +69,14 @@ const Hero: FC<HeroProps> = ({ slice }) => {
       start: "top top",
       end: "bottom bottom",
       scrub: 1.5,
-      markers: true     
+      markers: false     
     },
   });
   scrollTl
     .fromTo("body",{
-    backgroundColor: "#ECC94B",
+    backgroundColor: "#230600",
     },{
-      backgroundColor: "#F56565",
+      backgroundColor: "#5B391E",
       overwrite: "auto",
     })
     .from(".text-side-heading .split-char",{
@@ -102,6 +103,7 @@ const Hero: FC<HeroProps> = ({ slice }) => {
       data-slice-variation={slice.variation}
       className="hero opacity-0"
     >
+      <Navbar/>
       {isDesktop && (
 
         <View className="hero-scene pointer-events-none sticky top-0 z-50 -mt-[100vh] hidden h-screen w-screen md:block ">
@@ -112,13 +114,13 @@ const Hero: FC<HeroProps> = ({ slice }) => {
       <div className="grid">
         <div className="grid h-screen place-items-center">
           <div className="grid auto-rows-min place-items-center text-center">
-            <h4 className="hero-header text-7xl font-black uppercase leading-[.8] text-orange-100 md:text-[9rem] lg:text-[13rem]">
+            <h1 className="hero-header text-5xl font-black uppercase leading-[.8] text-orange-100 md:text-[6rem] lg:text-[8rem]">
               <TextSplitter text={asText(slice.primary.heading)} wordDisplayStyle="block" className="hero-header-word"/>
-            </h4>
-            <div className="hero-subheading mt-12 text-5xl font-semibold text-amber-800 lg:text-6xl">
+            </h1>
+            <div className="hero-subheading mt-12 text-4xl font-semibold text-amber-100 lg:text-4xl">
               <PrismicRichText field={slice.primary.subheading} />
             </div>
-            <div className="hero-body text-2xl font-normal text-sky-50">
+            <div className="hero-body text-2xl font-normal text-stone-200">
               <PrismicRichText field={slice.primary.body} />
             </div>       
               <Button buttonLink={slice.primary.button_link} buttonText={slice.primary.button_text} className="hero-button mt-12" />
@@ -131,7 +133,7 @@ const Hero: FC<HeroProps> = ({ slice }) => {
               <h2 className="text-side-heading text-balance text-6xl font-black text-amber-200 lg:text-8xl">
                 <TextSplitter text={asText(slice.primary.second_heading)} />
               </h2>
-        <div className="text-side-body mt-4 max-w-xl text-balance text-xl font-normal text-amber-300">
+        <div className="text-side-body mt-4 max-w-xl text-balance text-3xl font-normal text-amber-100">
 
       <PrismicRichText field={slice.primary.second_body} />
         </div>
