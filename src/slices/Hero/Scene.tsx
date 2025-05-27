@@ -67,7 +67,7 @@ export default function Scene({}: Props) {
 
     introTl
     .from(can1GroupRef.current.position, {y: -5, x: 1}, 0)
-    .from(can1GroupRef.current.rotation, {z: 3}, 0)
+    .from(can1GroupRef.current.rotation, {z: 3,}, 0)
     .from(can2GroupRef.current.position, {y: 5, x: 1}, 0)
     .from(can2GroupRef.current.rotation, {z: 3}, 0)
   }
