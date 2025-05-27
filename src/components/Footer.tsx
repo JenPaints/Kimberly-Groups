@@ -21,7 +21,7 @@ const Footer: React.FC = () => {
       className="w-full py-6 px-4 flex justify-between items-center bg-yellow-950 text-yellow-100 shadow-lg border-t border-yellow-800"
       style={{ fontFamily: "var(--font-alpino)" }}
     >
-      <span className="text-lg font-semibold tracking-wide">© {new Date().getFullYear()} Kimberly Groups</span>
+      <span className="text-lg font-semibold tracking-wide">© {new Date().getFullYear()} Kimberly Group</span>
       <span className="text-sm opacity-80">Crafted by <span className="text-pink-400">♥</span> Social Agent</span>
     </div>
   );
