@@ -156,7 +156,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
               <h2 className="text-side-heading text-balance text-6xl font-black uppercase text-sky-950 lg:text-8xl">
                 <TextSplitter text={asText(slice.primary.second_heading)} />
               </h2>
-              <div className="text-side-body mt-4 max-w-xl text-balance text-xl font-normal text-sky-950">
+              <div className="text-side-body mt-4 max-w-xl text-balance text-2xl font-normal text-sky-950">
                 <PrismicRichText field={slice.primary.second_body} />
               </div>
             </div>
