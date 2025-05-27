@@ -7,6 +7,8 @@ import "./app.css"
 
 import Header from "@/components/Header";
 import ViewCanvas from '@/components/ViewCanvas';
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 const alpino = localFont({
   src: "../../public/fonts/Alpino-Variable.woff2",
@@ -28,9 +30,11 @@ export default function RootLayout({
           <ViewCanvas/>
 
         </main>
+        <Footer />
         
       <PrismicPreview repositoryName={repositoryName} />
       </body>
     </html>
   );
 }
+
