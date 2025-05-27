@@ -25,13 +25,13 @@
             "label": "Flavor",
             "placeholder": "",
             "options": [
-              "ButterScotch",
-              "ClassicCappuiccino",
-              "OrangeMocha",
-              "DarkMocha",
-              "VanillaBliss"
+              "lemonLime",
+              "grape",
+              "blackCherry",
+              "strawberryLemonade",
+              "watermelon"
             ],
-            "default_value": "ButterScotch"
+            "default_value": "lemonLime"
           }
         }
       },

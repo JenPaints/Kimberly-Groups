@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-import { Menu, X, ChevronDown } from "lucide-react";
 import Link from "next/link";
 
 const navItems = [
@@ -15,7 +14,7 @@ const navItems = [
 
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+
 
   return (
     <header className="w-full fixed top-0 z-50 backdrop-blur-md bg-white/60 border-b border-white/30 shadow-sm transition-all duration-300">
@@ -32,8 +31,7 @@ const Navbar = () => {
             <div
               key={item.label}
               className="relative"
-              onMouseEnter={() => setActiveDropdown(item.label)}
-              onMouseLeave={() => setActiveDropdown(null)}
+    
             >
               <Link
                 href={item.href}
@@ -53,7 +51,6 @@ const Navbar = () => {
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
           >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
       </div>

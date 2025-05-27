@@ -7,7 +7,8 @@ import {
   SliceComponentProps,
 } from "@prismicio/react";
 import { Center, Environment, View } from "@react-three/drei";
-import { JSX, useRef, useState } from "react";
+import { useRef, useState } from "react";
+import type { JSX } from "react";
 import clsx from "clsx";
 import { Group } from "three";
 import gsap from "gsap";
@@ -23,15 +24,15 @@ const FLAVORS: {
   color: string;
   name: string;
 }[] = [
-  { flavor: "ButterScotch", color: "#710523", name: "ButterScotch" },
-  { flavor: "ClassicCappuiccino", color: "#572981", name: "Classic Cappuiccino" },
-  { flavor: "OrangeMocha", color: "#164405", name: "Orange Mocha" },
+  { flavor: "blackCherry", color: "#710523", name: "Black Cherry" },
+  { flavor: "grape", color: "#572981", name: "Grape Goodness" },
+  { flavor: "lemonLime", color: "#164405", name: "Lemon Lime" },
   {
-    flavor: "DarkMocha",
+    flavor: "strawberryLemonade",
     color: "#690B3D",
-    name: "Dark Mocha",
+    name: "Strawberry Lemonade",
   },
-  { flavor: "VanillaBliss", color: "#4B7002", name: "Vanilla Bliss" },
+  { flavor: "watermelon", color: "#4B7002", name: "Watermelon Crush" },
 ];
 
 /**

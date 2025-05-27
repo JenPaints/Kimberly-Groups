@@ -5,12 +5,12 @@
 		"primary": {
 			"sentence": {
 				"__TYPE__": "FieldContent",
-				"value": "increase",
+				"value": "deeply",
 				"type": "Text"
 			},
 			"flavor": {
 				"__TYPE__": "FieldContent",
-				"value": "ButterScotch",
+				"value": "watermelon",
 				"type": "Select"
 			}
 		},

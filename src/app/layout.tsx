@@ -22,14 +22,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={alpino.variable}>
-      <body className="overflow-x-hidden bg-yellow-500">
+      <body className="overflow-x-hidden bg-yellow-900">
         <Header />
         <main>{children}
           <ViewCanvas/>
 
         </main>
-      </body>
+        
       <PrismicPreview repositoryName={repositoryName} />
+      </body>
     </html>
   );
 }

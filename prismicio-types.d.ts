@@ -5,6 +5,7 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 type PageDocumentDataSlicesSlice =
+  | BigTextSlice
   | AlternatingTextSlice
   | CarouselSlice
   | SkyDiveSlice
@@ -155,6 +156,36 @@ export type AlternatingTextSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Default variation for BigText Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BigTextSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  never
+>;
+
+/**
+ * Slice variation for *BigText*
+ */
+type BigTextSliceVariation = BigTextSliceDefault;
+
+/**
+ * BigText Shared Slice
+ *
+ * - **API ID**: `big_text`
+ * - **Description**: BigText
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BigTextSlice = prismic.SharedSlice<
+  "big_text",
+  BigTextSliceVariation
+>;
+
+/**
  * Primary content in *Carousel → Default → Primary*
  */
 export interface CarouselSliceDefaultPrimary {
@@ -256,12 +287,12 @@ export interface HeroSliceDefaultPrimary {
   /**
    * Button Link field in *Hero → Default → Primary*
    *
-   * - **Field Type**: Text
+   * - **Field Type**: Link
    * - **Placeholder**: *None*
    * - **API ID Path**: hero.default.primary.button_link
-   * - **Documentation**: https://prismic.io/docs/field#key-text
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  button_link: prismic.KeyTextField;
+  button_link: prismic.LinkField;
 
   /**
    * Cans Image field in *Hero → Default → Primary*
@@ -340,16 +371,12 @@ export interface SkyDiveSliceDefaultPrimary {
    *
    * - **Field Type**: Select
    * - **Placeholder**: *None*
-   * - **Default Value**: ButterScotch
+   * - **Default Value**: lemonLime
    * - **API ID Path**: sky_dive.default.primary.flavor
    * - **Documentation**: https://prismic.io/docs/field#select
    */
   flavor: prismic.SelectField<
-    | "ButterScotch"
-    | "ClassicCappuiccino"
-    | "OrangeMocha"
-    | "DarkMocha"
-    | "VanillaBliss",
+    "lemonLime" | "grape" | "blackCherry" | "strawberryLemonade" | "watermelon",
     "filled"
   >;
 }
@@ -392,17 +419,6 @@ declare module "@prismicio/client" {
     ): prismic.Client<AllDocumentTypes>;
   }
 
-  interface CreateWriteClient {
-    (
-      repositoryNameOrEndpoint: string,
-      options: prismic.WriteClientConfig,
-    ): prismic.WriteClient<AllDocumentTypes>;
-  }
-
-  interface CreateMigration {
-    (): prismic.Migration<AllDocumentTypes>;
-  }
-
   namespace Content {
     export type {
       PageDocument,
@@ -414,6 +430,9 @@ declare module "@prismicio/client" {
       AlternatingTextSliceDefaultPrimary,
       AlternatingTextSliceVariation,
       AlternatingTextSliceDefault,
+      BigTextSlice,
+      BigTextSliceVariation,
+      BigTextSliceDefault,
       CarouselSlice,
       CarouselSliceDefaultPrimary,
       CarouselSliceVariation,
