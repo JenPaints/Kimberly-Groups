@@ -5,7 +5,7 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 type PageDocumentDataSlicesSlice =
-  | BigTextSlice
+  | SlideShowSlice
   | AlternatingTextSlice
   | CarouselSlice
   | SkyDiveSlice
@@ -153,36 +153,6 @@ type AlternatingTextSliceVariation = AlternatingTextSliceDefault;
 export type AlternatingTextSlice = prismic.SharedSlice<
   "alternating_text",
   AlternatingTextSliceVariation
->;
-
-/**
- * Default variation for BigText Slice
- *
- * - **API ID**: `default`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type BigTextSliceDefault = prismic.SharedSliceVariation<
-  "default",
-  Record<string, never>,
-  never
->;
-
-/**
- * Slice variation for *BigText*
- */
-type BigTextSliceVariation = BigTextSliceDefault;
-
-/**
- * BigText Shared Slice
- *
- * - **API ID**: `big_text`
- * - **Description**: BigText
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type BigTextSlice = prismic.SharedSlice<
-  "big_text",
-  BigTextSliceVariation
 >;
 
 /**
@@ -411,6 +381,51 @@ export type SkyDiveSlice = prismic.SharedSlice<
   SkyDiveSliceVariation
 >;
 
+/**
+ * Primary content in *SlideShow → Default → Primary*
+ */
+export interface SlideShowSliceDefaultPrimary {
+  /**
+   * SlideShow field in *SlideShow → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: slide_show.default.primary.slideshow
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  slideshow: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for SlideShow Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SlideShowSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<SlideShowSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *SlideShow*
+ */
+type SlideShowSliceVariation = SlideShowSliceDefault;
+
+/**
+ * SlideShow Shared Slice
+ *
+ * - **API ID**: `slide_show`
+ * - **Description**: SlideShow
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SlideShowSlice = prismic.SharedSlice<
+  "slide_show",
+  SlideShowSliceVariation
+>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -430,9 +445,6 @@ declare module "@prismicio/client" {
       AlternatingTextSliceDefaultPrimary,
       AlternatingTextSliceVariation,
       AlternatingTextSliceDefault,
-      BigTextSlice,
-      BigTextSliceVariation,
-      BigTextSliceDefault,
       CarouselSlice,
       CarouselSliceDefaultPrimary,
       CarouselSliceVariation,
@@ -445,6 +457,10 @@ declare module "@prismicio/client" {
       SkyDiveSliceDefaultPrimary,
       SkyDiveSliceVariation,
       SkyDiveSliceDefault,
+      SlideShowSlice,
+      SlideShowSliceDefaultPrimary,
+      SlideShowSliceVariation,
+      SlideShowSliceDefault,
     };
   }
 }

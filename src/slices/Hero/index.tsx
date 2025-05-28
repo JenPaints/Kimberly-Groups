@@ -81,10 +81,10 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
         .fromTo(
           "body",
           {
-            backgroundColor: "#EFDECD",
+            backgroundColor: "#FAFAF9",
           },
           {
-            backgroundColor: "#FAD6A5",
+            backgroundColor: "#FEF3C7",
             overwrite: "auto",
           },
           1,
@@ -126,7 +126,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
         <div className="grid">
           <div className="grid h-screen place-items-center">
             <div className="grid auto-rows-min place-items-center text-center">
-              <h1 className="hero-header text-5xl font-black uppercase leading-[.8] text-yellow-600 md:text-[4rem] lg:text-[7rem]">
+              <h1 className="hero-header text-5xl font-black uppercase leading-[.8] text-yellow-700 md:text-[4rem] lg:text-[7rem]">
                 <TextSplitter
                   text={asText(slice.primary.heading)}
                   wordDisplayStyle="block"
@@ -156,7 +156,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
               <h2 className="text-side-heading text-balance text-6xl font-black uppercase text-sky-950 lg:text-8xl">
                 <TextSplitter text={asText(slice.primary.second_heading)} />
               </h2>
-              <div className="text-side-body mt-4 max-w-xl text-balance text-2xl font-normal text-sky-950">
+              <div className="text-side-body mt-4 max-w-2xl text-balance text-2xl font-normal text-sky-950">
                 <PrismicRichText field={slice.primary.second_body} />
               </div>
             </div>

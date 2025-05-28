@@ -7,4 +7,5 @@ export const components = {
   carousel: dynamic(() => import("./Carousel")),
   hero: dynamic(() => import("./Hero")),
   sky_dive: dynamic(() => import("./SkyDive")),
+  slide_show: dynamic(() => import("./SlideShow")),
 };

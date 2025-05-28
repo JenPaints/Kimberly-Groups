@@ -7,7 +7,6 @@ import "./app.css"
 
 import Header from "@/components/Header";
 import ViewCanvas from '@/components/ViewCanvas';
-import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 const alpino = localFont({
@@ -24,7 +23,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={alpino.variable}>
-      <body className="overflow-x-hidden bg-yellow-900">
+      <body className="overflow-x-hidden bg-yellow-700">
+
         <Header />
         <main>{children}
           <ViewCanvas/>
@@ -37,4 +37,3 @@ export default function RootLayout({
     </html>
   );
 }
-

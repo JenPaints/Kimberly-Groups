@@ -1,0 +1,27 @@
+{
+  "id": "slide_show",
+  "type": "SharedSlice",
+  "name": "SlideShow",
+  "description": "SlideShow",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "slideshow": {
+          "type": "Image",
+          "config": {
+            "label": "SlideShow",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
