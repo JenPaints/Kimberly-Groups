@@ -11,16 +11,7 @@
       "version": "initial",
       "description": "Default",
       "imageUrl": "",
-      "primary": {
-        "slideshow": {
-          "type": "Image",
-          "config": {
-            "label": "SlideShow",
-            "constraint": {},
-            "thumbnails": []
-          }
-        }
-      },
+      "primary": {},
       "items": {}
     }
   ]

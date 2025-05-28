@@ -98,11 +98,7 @@ const SlideShow = ({ slice }: SlideShowProps): JSX.Element => {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Section */}
         <div className="text-center mb-6 sm:mb-8">
-          <div className="inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-amber-400 to-orange-500 rounded-2xl mb-4 shadow-lg">
-            <svg className="w-7 h-7 sm:w-8 sm:h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-            </svg>
-          </div>
+          
           
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-amber-800 via-orange-700 to-red-700 bg-clip-text text-transparent mb-3">
             Glimpse of Kimberly Cafe
@@ -220,8 +216,8 @@ const SlideShow = ({ slice }: SlideShowProps): JSX.Element => {
             </div>
           </div>
 
-          {/* Side Information Panel - Desktop */}
-          <div className="hidden lg:block w-80 space-y-6">
+          {/* Mobile Info Panel */}
+          <div className="lg:hidden w-full space-y-6 mt-6">
             <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white/50 flex flex-col items-center">
               <h3 className="text-xl font-bold text-gray-800 mb-4">Find Us Here</h3>
               <div className="w-full h-56 rounded-xl overflow-hidden shadow-md mb-4">
@@ -310,24 +306,160 @@ const SlideShow = ({ slice }: SlideShowProps): JSX.Element => {
           </div>
         </div>
 
-        {/* Mobile Info Panel */}
-        <div className="lg:hidden mt-6 bg-white/70 backdrop-blur-sm rounded-2xl p-4 shadow-lg border border-white/50">
-          <div className="grid grid-cols-3 gap-4 text-center">
-            <div>
-              <div className="w-4 h-4 bg-blue-500 rounded-full mx-auto mb-1"></div>
-              <div className="text-xs text-gray-600">Videos</div>
-              <div className="text-sm font-semibold text-gray-800">{slides.filter(s => s.type === 'video').length}</div>
+        {/* Events Bento Grid Video Collage */}
+        <div className="mt-16 lg:mt-20">
+          {/* Events Header */}
+          <div className="text-center mb-8 lg:mb-12">
+         
+            
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 bg-clip-text text-transparent mb-4 tracking-tight">
+              EVENTS
+            </h2>
+            
+            <p className="text-gray-700 text-lg sm:text-xl max-w-3xl mx-auto leading-relaxed font-medium">
+              Immerse yourself in the vibrant energy of Kimberly Coorg's exclusive events - where memories are crafted and magic happens
+            </p>
+            
+            {/* Animated decorative elements */}
+            <div className="flex items-center justify-center mt-6 space-x-4">
+              <div className="w-3 h-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full animate-pulse"></div>
+              <div className="h-px bg-gradient-to-r from-transparent via-pink-500 to-transparent w-32 sm:w-48"></div>
+              <div className="w-4 h-4 bg-gradient-to-r from-pink-500 to-red-500 rounded-full animate-bounce"></div>
+              <div className="h-px bg-gradient-to-r from-transparent via-pink-500 to-transparent w-32 sm:w-48"></div>
+              <div className="w-3 h-3 bg-gradient-to-r from-red-500 to-purple-500 rounded-full animate-pulse delay-500"></div>
             </div>
-            <div>
-              <div className="w-4 h-4 bg-green-500 rounded-full mx-auto mb-1"></div>
-              <div className="text-xs text-gray-600">Photos</div>
-              <div className="text-sm font-semibold text-gray-800">{slides.filter(s => s.type === 'image').length}</div>
+          </div>
+
+          {/* Clean Bento Grid Video Collage */}
+          <div className="grid grid-cols-6 gap-4 sm:gap-8 max-w-7xl mx-auto">
+            
+            {/* Large Hero Video - Dominant Feature */}
+            <div className="col-span-6 sm:col-span-4 h-[300px] sm:h-[400px] group relative overflow-hidden rounded-3xl shadow-2xl">
+              <video
+                src="https://jenpaints.art/wp-content/uploads/2025/05/7.mp4"
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+              <div className="absolute bottom-6 left-6 right-6">
+                <h3 className="text-white font-bold text-xl sm:text-2xl mb-2">Grand Celebration</h3>
+                <p className="text-white/90 text-sm sm:text-base">Experience the grandeur of our signature events</p>
+              </div>
             </div>
-            <div>
-              <div className="w-4 h-4 bg-pink-500 rounded-full mx-auto mb-1"></div>
-              <div className="text-xs text-gray-600">Reels</div>
-              <div className="text-sm font-semibold text-gray-800">{slides.filter(s => s.type === 'reel').length}</div>
+
+            {/* Tall Video - Right Column */}
+            <div className="col-span-6 sm:col-span-2 h-[300px] sm:h-[400px] group relative overflow-hidden rounded-3xl shadow-xl">
+              <video
+                src="https://jenpaints.art/wp-content/uploads/2025/05/6.mp4"
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+              <div className="absolute bottom-4 left-4 right-4">
+                <h3 className="text-white font-semibold text-base sm:text-lg mb-1">Gatherings</h3>
+                <p className="text-white/80 text-xs sm:text-sm">Cozy moments that matter</p>
+              </div>
             </div>
+
+            {/* Three Equal Medium Videos */}
+            <div className="col-span-6 sm:col-span-2 h-[200px] sm:h-[250px] group relative overflow-hidden rounded-2xl shadow-xl">
+              <video
+                src="https://jenpaints.art/wp-content/uploads/2025/05/5.mp4"
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+              <div className="absolute bottom-4 left-4 right-4">
+                <h3 className="text-white font-semibold text-sm sm:text-base">Culinary Excellence</h3>
+              </div>
+            </div>
+
+            <div className="col-span-6 sm:col-span-2 h-[200px] sm:h-[250px] group relative overflow-hidden rounded-2xl shadow-xl">
+              <video
+                src="https://jenpaints.art/wp-content/uploads/2025/05/4.mp4"
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+              <div className="absolute bottom-4 left-4 right-4">
+                <h3 className="text-white font-semibold text-sm sm:text-base">Special Events</h3>
+              </div>
+            </div>
+
+            <div className="col-span-6 sm:col-span-2 h-[200px] sm:h-[250px] group relative overflow-hidden rounded-2xl shadow-xl">
+              <video
+                src="https://jenpaints.art/wp-content/uploads/2025/05/3.mp4"
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+              <div className="absolute bottom-4 left-4 right-4">
+                <h3 className="text-white font-semibold text-sm sm:text-base">Scenic Celebrations</h3>
+              </div>
+            </div>
+
+            {/* Bottom Two Videos */}
+            <div className="col-span-6 sm:col-span-3 h-[200px] sm:h-[250px] group relative overflow-hidden rounded-2xl shadow-xl">
+              <video
+                src="https://jenpaints.art/wp-content/uploads/2025/05/2.mp4"
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+              <div className="absolute bottom-4 left-4 right-4">
+                <h3 className="text-white font-bold text-base sm:text-lg mb-1">Musical Evenings</h3>
+                <p className="text-white/90 text-xs sm:text-sm">Rhythm & soul combined</p>
+              </div>
+            </div>
+
+            <div className="col-span-6 sm:col-span-3 h-[200px] sm:h-[250px] group relative overflow-hidden rounded-2xl shadow-xl">
+              <video
+                src="https://jenpaints.art/wp-content/uploads/2025/05/1.mp4"
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+              <div className="absolute bottom-4 left-4 right-4">
+                <h3 className="text-white font-bold text-base sm:text-lg mb-1">Signature Moments</h3>
+                <p className="text-white/90 text-xs sm:text-sm">Creating lasting memories</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Call to Action */}
+          <div className="text-center mt-8 lg:mt-12">
+            <a
+              href="https://www.instagram.com/kimberlycoorg/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center space-x-4 bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 rounded-full px-8 py-4 shadow-2xl hover:shadow-purple-500/25 transform hover:scale-105 transition-all duration-300 group"
+            >
+              <span className="text-white font-bold text-lg">Join Our Next Event</span>
+              <svg className="w-6 h-6 text-white group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
           </div>
         </div>
       </div>

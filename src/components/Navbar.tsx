@@ -27,7 +27,7 @@ const Navbar = () => {
     <header
       className={`w-full fixed top-0 z-50 border-b transition-all duration-300 ${
         scrolled
-          ? "bg-white/60 backdrop-blur-md border-white/30 shadow-sm"
+          ? "bg-white backdrop-blur-md border-white shadow-sm"
           : "bg-transparent border-transparent"
       }`}
     >
@@ -47,7 +47,7 @@ const Navbar = () => {
             <div key={item.label} className="relative">
               <a
                 href={item.href}
-                className="font-medium text-black hover:text-red-600 transition"
+                className="font-medium text-black hover:text-yellow-700 transition"
               >
                 {item.label}
               </a>

@@ -1,26 +1,36 @@
 "use client";
-
 import { Environment } from "@react-three/drei";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { Group } from "three";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 
-import FloatingCan from "@/components/FloatingCan";
+import StaticLogo from "@/components/StaticLogo"; // You'll need to create this component
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 export default function Scene() {
-  const canRef = useRef<Group>(null);
+  const logoRef = useRef<Group>(null);
   const isDesktop = useMediaQuery("(min-width: 768px)", true);
-
+  
+  // Track current logo index - start with 3.jpeg (index 0 in reordered array)
+  const [currentLogoIndex, setCurrentLogoIndex] = useState(0);
+  
   const bgColors = ["#FAFAF9", "#FAFAF9", "#FAFAF9"];
+  
+  // Define your 3 logo images here (relative to public folder)
+  // Order: 3.jpeg (start) -> 2.jpeg (right to left) -> 1.jpeg (left to right) -> repeat
+  const logos = [
+    "/3.JPEG", // Index 0 - Starting logo
+    "/2.JPEG", // Index 1 - Right to left movement
+    "/1.JPEG"  // Index 2 - Left to right movement
+  ];
 
   useGSAP(
     () => {
-      if (!canRef.current) return;
+      if (!logoRef.current) return;
 
       const sections = gsap.utils.toArray(".alternating-section");
 
@@ -36,21 +46,31 @@ export default function Scene() {
       });
 
       sections.forEach((_, index) => {
-        if (!canRef.current) return;
-        if (index === 0) return;
-
+        if (!logoRef.current) return;
+        
         const isOdd = index % 2 !== 0;
-
         const xPosition = isDesktop ? (isOdd ? "-1" : "1") : 0;
         const yRotation = isDesktop ? (isOdd ? ".4" : "-.4") : 0;
+        
+        // Calculate which logo to show - cycle through all 3 logos
+        const logoIndex = index % logos.length;
+        
+        if (index === 0) {
+          // Set initial logo without animation
+          scrollTl.call(() => {
+            setCurrentLogoIndex(logoIndex);
+          });
+          return;
+        }
+        
         scrollTl
-          .to(canRef.current.position, {
+          .to(logoRef.current.position, {
             x: xPosition,
             ease: "circ.inOut",
             delay: 0.5,
           })
           .to(
-            canRef.current.rotation,
+            logoRef.current.rotation,
             {
               y: yRotation,
               ease: "back.inOut",
@@ -59,6 +79,10 @@ export default function Scene() {
           )
           .to(".alternating-text-container", {
             backgroundColor: gsap.utils.wrap(bgColors, index),
+          })
+          .call(() => {
+            // Change logo when animation reaches this point
+            setCurrentLogoIndex(logoIndex);
           });
       });
     },
@@ -67,11 +91,11 @@ export default function Scene() {
 
   return (
     <group
-      ref={canRef}
+      ref={logoRef}
       position-x={isDesktop ? 1 : 0}
       rotation-y={isDesktop ? -0.3 : 0}
     >
-      <FloatingCan flavor="strawberryLemonade" />
+      <StaticLogo src={logos[currentLogoIndex]} />
       <Environment files={"/hdr/lobby.hdr"} environmentIntensity={1.5} />
     </group>
   );

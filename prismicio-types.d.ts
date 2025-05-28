@@ -382,21 +382,6 @@ export type SkyDiveSlice = prismic.SharedSlice<
 >;
 
 /**
- * Primary content in *SlideShow → Default → Primary*
- */
-export interface SlideShowSliceDefaultPrimary {
-  /**
-   * SlideShow field in *SlideShow → Default → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: slide_show.default.primary.slideshow
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  slideshow: prismic.ImageField<never>;
-}
-
-/**
  * Default variation for SlideShow Slice
  *
  * - **API ID**: `default`
@@ -405,7 +390,7 @@ export interface SlideShowSliceDefaultPrimary {
  */
 export type SlideShowSliceDefault = prismic.SharedSliceVariation<
   "default",
-  Simplify<SlideShowSliceDefaultPrimary>,
+  Record<string, never>,
   never
 >;
 
@@ -458,7 +443,6 @@ declare module "@prismicio/client" {
       SkyDiveSliceVariation,
       SkyDiveSliceDefault,
       SlideShowSlice,
-      SlideShowSliceDefaultPrimary,
       SlideShowSliceVariation,
       SlideShowSliceDefault,
     };

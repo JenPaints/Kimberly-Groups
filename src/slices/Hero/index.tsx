@@ -14,7 +14,7 @@ import { Bounded } from "@/components/Bounded";
 import Button from "@/components/Button";
 
 import { TextSplitter } from "@/components/TextSplitter";
-import Navbar from "@/components/Navbar"; // Add this import
+import Navbar from "@/components/Navbar"; 
 import Scene from "./Scene";
 import { Bubbles } from "./Bubbles";
 import { useStore } from "@/hooks/useStore";

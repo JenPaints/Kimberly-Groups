@@ -23,7 +23,7 @@ const Footer: React.FC = () => {
     >
       <span className="text-lg font-semibold tracking-wide">© {new Date().getFullYear()} Kimberly Group</span>
       <a href="https://www.socialagent.in" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
-        <span className="backdrop-blur-md bg-white/30 ">
+        <span className="backdrop-blur-md bg-white ">
           <img src="https://www.socialagent.in/_next/static/media/logoBlue.e3f23bf1.svg" alt="Social Agent Logo" className="h-7 w-auto" />
         </span>
       </a>
