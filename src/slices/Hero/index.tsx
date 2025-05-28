@@ -110,11 +110,23 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
     <>
       {/* Add Navbar here */}
       <Navbar />
-      
+      {/* Coffee bean SVG overlay background */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none fixed inset-0 z-0 h-full w-full overflow-hidden"
+        style={{background:"none"}}
+      >
+        <img
+          src="/labels/beans-bg.png"
+          alt="Coffee bean background"
+          className="absolute inset-0 w-full h-full object-cover opacity-10"
+          style={{zIndex:0}}
+        />
+      </div>
       <Bounded
         data-slice-type={slice.slice_type}
         data-slice-variation={slice.variation}
-        className="hero opacity-0"
+        className="hero opacity-0 relative z-10"
       >
         {isDesktop && (
           <View className="hero-scene pointer-events-none sticky top-0 z-50 -mt-[100vh] hidden h-screen w-screen md:block">
@@ -133,7 +145,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
                   className="hero-header-word"
                 />
               </h1>
-              <div className="hero-subheading mt-12 text-4xl font-semibold text-sky-950 lg:text-4xl">
+              <div className="hero-subheading mt-6 text-4xl font-semibold text-sky-950 lg:text-4xl">
                 <PrismicRichText field={slice.primary.subheading} />
               </div>
               <div className="hero-body text-2xl font-normal text-sky-950">
