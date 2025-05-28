@@ -98,7 +98,11 @@ const SlideShow = ({ slice }: SlideShowProps): JSX.Element => {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Section */}
         <div className="text-center mb-6 sm:mb-8">
-          
+          <div className="inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-amber-400 to-orange-500 rounded-2xl mb-4 shadow-lg">
+            <svg className="w-7 h-7 sm:w-8 sm:h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+          </div>
           
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-amber-800 via-orange-700 to-red-700 bg-clip-text text-transparent mb-3">
             Glimpse of Kimberly Cafe
@@ -216,8 +220,8 @@ const SlideShow = ({ slice }: SlideShowProps): JSX.Element => {
             </div>
           </div>
 
-          {/* Mobile Info Panel */}
-          <div className="lg:hidden w-full space-y-6 mt-6">
+          {/* Side Information Panel - Desktop */}
+          <div className="hidden lg:block w-80 space-y-6">
             <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white/50 flex flex-col items-center">
               <h3 className="text-xl font-bold text-gray-800 mb-4">Find Us Here</h3>
               <div className="w-full h-56 rounded-xl overflow-hidden shadow-md mb-4">
@@ -247,7 +251,7 @@ const SlideShow = ({ slice }: SlideShowProps): JSX.Element => {
               <h3 className="text-lg font-bold text-gray-800 mb-4">Follow Us</h3>
               <div className="space-y-3">
                 <a 
-                  href="https://instagram.com/kimberlycafe" 
+                  href="https://www.instagram.com/kimberlycoorg" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="flex items-center space-x-3 text-gray-700 hover:text-pink-600 transition-colors duration-200 group"
@@ -306,11 +310,37 @@ const SlideShow = ({ slice }: SlideShowProps): JSX.Element => {
           </div>
         </div>
 
+        {/* Mobile Info Panel */}
+        <div className="lg:hidden mt-6 bg-white/70 backdrop-blur-sm rounded-2xl p-4 shadow-lg border border-white/50">
+          <div className="grid grid-cols-3 gap-4 text-center">
+            <div>
+              <div className="w-4 h-4 bg-blue-500 rounded-full mx-auto mb-1"></div>
+              <div className="text-xs text-gray-600">Videos</div>
+              <div className="text-sm font-semibold text-gray-800">{slides.filter(s => s.type === 'video').length}</div>
+            </div>
+            <div>
+              <div className="w-4 h-4 bg-green-500 rounded-full mx-auto mb-1"></div>
+              <div className="text-xs text-gray-600">Photos</div>
+              <div className="text-sm font-semibold text-gray-800">{slides.filter(s => s.type === 'image').length}</div>
+            </div>
+            <div>
+              <div className="w-4 h-4 bg-pink-500 rounded-full mx-auto mb-1"></div>
+              <div className="text-xs text-gray-600">Reels</div>
+              <div className="text-sm font-semibold text-gray-800">{slides.filter(s => s.type === 'reel').length}</div>
+            </div>
+          </div>
+        </div>
+     
+
         {/* Events Bento Grid Video Collage */}
         <div className="mt-16 lg:mt-20">
           {/* Events Header */}
           <div className="text-center mb-8 lg:mb-12">
-         
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-purple-500 via-pink-500 to-red-500 rounded-3xl mb-6 shadow-2xl transform hover:scale-110 transition-transform duration-300">
+              <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg>
+            </div>
             
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 bg-clip-text text-transparent mb-4 tracking-tight">
               EVENTS
