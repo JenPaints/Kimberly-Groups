@@ -251,7 +251,7 @@ const SlideShow = ({ slice }: SlideShowProps): JSX.Element => {
               <h3 className="text-lg font-bold text-gray-800 mb-4">Follow Us</h3>
               <div className="space-y-3">
                 <a 
-                  href="https://www.instagram.com/kimberlycoorg" 
+                  href="https://instagram.com/kimberlycafe" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="flex items-center space-x-3 text-gray-700 hover:text-pink-600 transition-colors duration-200 group"
@@ -330,7 +330,26 @@ const SlideShow = ({ slice }: SlideShowProps): JSX.Element => {
             </div>
           </div>
         </div>
-     
+     {/* Mobile Info Panel */}
+     <div className="lg:hidden mt-6 bg-white/70 backdrop-blur-sm rounded-2xl p-4 shadow-lg border border-white/50">
+          <div className="grid grid-cols-3 gap-4 text-center">
+            <div>
+              <div className="w-4 h-4 bg-blue-500 rounded-full mx-auto mb-1"></div>
+              <div className="text-xs text-gray-600">Videos</div>
+              <div className="text-sm font-semibold text-gray-800">{slides.filter(s => s.type === 'video').length}</div>
+            </div>
+            <div>
+              <div className="w-4 h-4 bg-green-500 rounded-full mx-auto mb-1"></div>
+              <div className="text-xs text-gray-600">Photos</div>
+              <div className="text-sm font-semibold text-gray-800">{slides.filter(s => s.type === 'image').length}</div>
+            </div>
+            <div>
+              <div className="w-4 h-4 bg-pink-500 rounded-full mx-auto mb-1"></div>
+              <div className="text-xs text-gray-600">Reels</div>
+              <div className="text-sm font-semibold text-gray-800">{slides.filter(s => s.type === 'reel').length}</div>
+            </div>
+          </div>
+        </div>
 
         {/* Events Bento Grid Video Collage */}
         <div className="mt-16 lg:mt-20">
