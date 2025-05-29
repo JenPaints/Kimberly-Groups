@@ -34,6 +34,7 @@ export type HeroProps = SliceComponentProps<Content.HeroSlice>;
 const Hero = ({ slice }: HeroProps): JSX.Element => {
   const ready = useStore((state) => state.ready);
   const isDesktop = useMediaQuery("(min-width: 768px)", true);
+  const isMobile = useMediaQuery("(max-width: 767px)", false);
 
   useGSAP(
     () => {
@@ -41,32 +42,69 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
 
       const introTl = gsap.timeline();
 
-      introTl
-        .set(".hero", { opacity: 1 })
-        .from(".hero-header-word", {
-          scale: 3,
-          opacity: 0,
-          ease: "power4.in",
-          delay: 0.3,
-          stagger: 1,
-        })
-        .from(
-          ".hero-subheading",
-          {
+      if (isMobile) {
+        // Mobile-specific intro animation
+        introTl
+          .set(".hero", { opacity: 1 })
+          .from(".hero-header-word", {
+            scale: 1.5,
             opacity: 0,
-            y: 30,
-          },
-          "+=.8",
-        )
-        .from(".hero-body", {
-          opacity: 0,
-          y: 10,
-        })
-        .from(".hero-button", {
-          opacity: 0,
-          y: 10,
-          duration: 0.6,
-        });
+            rotateX: 90,
+            transformOrigin: "center bottom",
+            ease: "back.out(1.7)",
+            stagger: 0.2,
+          })
+          .from(".hero-subheading", {
+            opacity: 0,
+            y: 20,
+            scale: 0.9,
+          }, "-=0.3")
+          .from(".hero-body", {
+            opacity: 0,
+            y: 15,
+            scale: 0.95,
+          })
+          .from(".hero-button", {
+            opacity: 0,
+            scale: 0.8,
+            rotation: 5,
+            duration: 0.6,
+            ease: "elastic.out(1, 0.5)"
+          })
+          .from(".mobile-hint", {
+            opacity: 0,
+            y: 10,
+            duration: 0.8
+          });
+      } else {
+        // Desktop animation (original)
+        introTl
+          .set(".hero", { opacity: 1 })
+          .from(".hero-header-word", {
+            scale: 3,
+            opacity: 0,
+            ease: "power4.in",
+            delay: 0.3,
+            stagger: 1,
+          })
+          .from(
+            ".hero-subheading",
+            {
+              opacity: 0,
+              y: 30,
+            },
+            "+=.8",
+          )
+          .from(".hero-body", {
+            opacity: 0,
+            y: 10,
+          })
+          .from(".hero-button", {
+            opacity: 0,
+            y: 10,
+            duration: 0.6,
+          });
+      }
 
       const scrollTl = gsap.timeline({
         scrollTrigger: {
@@ -103,7 +141,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
           opacity: 0,
         });
     },
-    { dependencies: [ready, isDesktop] },
+    { dependencies: [ready, isDesktop, isMobile] },
   );
 
   return (
@@ -148,7 +186,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
               <div className="hero-subheading mt-6 text-4xl font-semibold text-sky-950 lg:text-4xl">
                 <PrismicRichText field={slice.primary.subheading} />
               </div>
-              <div className="hero-body text-2xl font-normal text-sky-950">
+              <div className="hero-body text-2xl font-normal text-sky-950 text-center md:text-justify">
                 <PrismicRichText field={slice.primary.body} />
               </div>
               <Button
