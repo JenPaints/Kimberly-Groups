@@ -186,7 +186,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
               <div className="hero-subheading mt-6 text-4xl font-semibold text-sky-950 lg:text-4xl">
                 <PrismicRichText field={slice.primary.subheading} />
               </div>
-              <div className="hero-body text-2xl font-normal text-sky-950 text-center md:text-justify">
+              <div className="hero-body text-2xl font-normal text-sky-950 text-center md:text-center">
                 <PrismicRichText field={slice.primary.body} />
               </div>
               <Button

@@ -41,7 +41,7 @@ export default function Scene() {
           pin: true,
           start: "top top",
           end: "bottom bottom",
-          scrub: true,
+          scrub: 0.5, // Smoother scrubbing
         },
       });
 
@@ -52,37 +52,48 @@ export default function Scene() {
         const xPosition = isDesktop ? (isOdd ? "-1" : "1") : 0;
         const yRotation = isDesktop ? (isOdd ? ".4" : "-.4") : 0;
         
-        // Calculate which logo to show - cycle through all 3 logos
         const logoIndex = index % logos.length;
         
         if (index === 0) {
-          // Set initial logo without animation
           scrollTl.call(() => {
             setCurrentLogoIndex(logoIndex);
           });
           return;
         }
         
-        scrollTl
-          .to(logoRef.current.position, {
-            x: xPosition,
-            ease: "circ.inOut",
-            delay: 0.5,
-          })
-          .to(
-            logoRef.current.rotation,
-            {
+        if (logoRef.current) {
+          scrollTl
+            .to(logoRef.current.position, {
+              x: xPosition,
+              ease: "power3.inOut", // Smoother easing
+              duration: 1.5,
+            })
+            .to(logoRef.current.rotation, {
               y: yRotation,
-              ease: "back.inOut",
-            },
-            "<",
-          )
+              ease: "elastic.out(1, 0.3)", // More playful rotation
+              duration: 1.5,
+            }, "<")
+            .to(logoRef.current.scale, {
+              x: 0.9, y: 0.9, z: 0.9, // Subtle scaling effect
+              ease: "back.out",
+              duration: 0.5
+            }, "<");
+        }
+
+        scrollTl
           .to(".alternating-text-container", {
             backgroundColor: gsap.utils.wrap(bgColors, index),
+            duration: 0.8
           })
           .call(() => {
-            // Change logo when animation reaches this point
             setCurrentLogoIndex(logoIndex);
+            // Reset scale after logo change
+            if (logoRef.current) {
+              gsap.to(logoRef.current.scale, {
+                x: 1, y: 1, z: 1,
+                duration: 0.5
+              });
+            }
           });
       });
     },
