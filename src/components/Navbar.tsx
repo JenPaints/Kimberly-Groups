@@ -7,7 +7,7 @@ const navItems = [
   { label: "Cafes", href: "https://cafe-kimberly.jenpaints.art" },
   { label: "Events", href: "https://events-kimberly.jenpaints.art" },
   { label: "Resorts", href: "https://restaurants-kimberly.jenpaints.art" },
-  { label: "Real Estate", href: "https://estates-kimberly.jenpaints.art" },
+ // { label: "Real Estate", href: "https://estates-kimberly.jenpaints.art" },
   { label: "About Us", href: "https://about-us-kimberly.jenpaints.art" }
 ];
 
