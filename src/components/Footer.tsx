@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useRef } from "react";
 
-const Footer: React.FC = () => {
+const Footer = () => {
   const footerRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
@@ -17,7 +17,7 @@ const Footer: React.FC = () => {
             { y: 100, opacity: 0 },
             { y: 0, opacity: 1, duration: 1.2, ease: "power3.out" }
           ).fromTo(
-            contentRef.current.children,
+            Array.from(contentRef.current.children),
             { y: 20, opacity: 0 },
             { y: 0, opacity: 1, duration: 0.6, stagger: 0.1, ease: "power2.out" },
             "-=0.8"
@@ -52,7 +52,7 @@ const Footer: React.FC = () => {
             <div className="flex-1">
               <h3 className="text-2xl font-bold mb-2 text-yellow-50">Kimberly Coorg</h3>
               <p className="text-yellow-200 text-sm max-w-md leading-relaxed">
-                Where Coorg&apos;s soul meets global taste. Experience authentic hospitality, premium coffee, and the tranquil charm of Coorg.
+                Where Coorg's soul meets global taste. Experience authentic hospitality, premium coffee, and the tranquil charm of Coorg.
               </p>
             </div>
 
@@ -80,13 +80,18 @@ const Footer: React.FC = () => {
                 </svg>
                 <span className="text-sm">Madikeri, Coorg</span>
               </div>
-              <div className="flex items-center justify-end gap-2 text-yellow-300">
-                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+              <a 
+                href="mailto:Kimberlycoorg12@gmail.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center justify-end gap-2 text-yellow-300 hover:text-yellow-100 transition-colors duration-300 group"
+              >
+                <svg className="w-4 h-4 group-hover:scale-110 transition-transform duration-300" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
                   <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
                 </svg>
-                <span className="text-sm">Kimberlycoorg12@gmail.com</span>
-              </div>
+                <span className="text-sm group-hover:underline">Kimberlycoorg12@gmail.com</span>
+              </a>
             </div>
           </div>
 
