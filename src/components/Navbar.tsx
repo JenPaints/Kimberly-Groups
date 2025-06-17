@@ -4,11 +4,11 @@ import { useState, useEffect } from "react";
 const navItems = [
   { label: "Home", href: "https://kimberly-group-iota.vercel.app/" },
   { label: "Products", href: "https://kimberlycoorg.myshopify.com/" },
-  { label: "Cafes", href: "https://cafe-kimberly.jenpaints.art" },
-  { label: "Events", href: "https://events-kimberly.jenpaints.art" },
-  { label: "Resorts", href: "https://restaurants-kimberly.jenpaints.art" },
+ // { label: "Cafes", href: "https://cafe-kimberly.jenpaints.art" },
+ // { label: "Events", href: "https://events-kimberly.jenpaints.art" },
+ // { label: "Resorts", href: "https://restaurants-kimberly.jenpaints.art" },
  // { label: "Real Estate", href: "https://estates-kimberly.jenpaints.art" },
-  { label: "About Us", href: "https://about-us-kimberly.jenpaints.art" }
+ // { label: "About Us", href: "https://about-us-kimberly.jenpaints.art" }
 ];
 
 const Navbar = () => {
